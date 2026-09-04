@@ -58,8 +58,6 @@ font-size:8px;font-weight:800;padding:2px 5px;letter-spacing:1px;
 text-shadow:0 0 8px rgba(255,215,0,.4);
 }
 .spacer{flex:1}
-/* v42: OPEN is a real tap target — the transparent file input sits on
-top of the button so the tap lands on an actual <input type=file> */
 .openwrap{position:relative;display:inline-block}
 .openwrap input[type=file]{
 position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;
@@ -129,9 +127,9 @@ min-height:24px;
 .hbx.show{display:block}
 .hbx b{color:var(--cyan);font-weight:700}
 .hbx i{color:var(--gold);font-style:normal;font-weight:700}
-.chev{margin-left:auto;color:var(--dim);transition:transform .2s;font-size:10px}
+.chev{margin-left:auto;color:var(--dim);transition:transform .2s;font-size:11px}
 .sec.collapsed .chev{transform:rotate(-90deg)}
-.row{display:flex;align-items:center;gap:5px;margin:6px 0;min-height:30px}
+.row{display:flex;align-items:center;gap:6px;margin:6px 0;min-height:30px}
 .row label{flex:0 0 68px;font-size:10px;color:var(--dim);font-weight:800;text-transform:uppercase}
 .row output{
 flex:0 0 44px;text-align:right;font-size:10px;color:var(--amber);
@@ -156,24 +154,24 @@ padding:6px;cursor:pointer;min-height:44px;
 }
 .chip.active{border-color:var(--neon);box-shadow:0 0 0 1px var(--neon)}
 .chip .sw{
-height:14px;border-radius:4px;border:1px solid rgba(0,0,0,.5);margin-bottom:4px;
+height:14px;border-radius:5px;border:1px solid rgba(0,0,0,.5);margin-bottom:4px;
 }
 .chip .nm{font-size:8px;font-weight:800;color:var(--dim);letter-spacing:.2px;text-transform:uppercase}
 .chip.active .nm{color:var(--ink)}
 .fxrow{
-display:flex;align-items:center;gap:4px;padding:4px 0;
+display:flex;align-items:center;gap:5px;padding:5px 0;
 border-bottom:1px dashed var(--edge);
 }
 .fxrow:last-child{border-bottom:none}
 .fxrow.off .fxnm,.fxrow.off input{opacity:.35}
-.fxrow .mv{padding:3px 5px;font-size:8px;min-width:34px;min-height:32px}
-.fxrow .fxon{flex:0 0 44px;padding:5px 0;font-size:8px;min-height:32px}
+.fxrow .mv{padding:4px 6px;font-size:9px;min-width:34px;min-height:32px}
+.fxrow .fxon{flex:0 0 44px;padding:6px 0;font-size:9px;min-height:32px}
 .fxrow .fxnm{
 flex:0 0 82px;font-size:8px;font-weight:900;letter-spacing:.2px;
 text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
 .fxrow input[type=range]{flex:1}
-.stp{min-width:34px;min-height:34px;padding:6px 0;font-size:9px}
+.stp{min-width:34px;min-height:34px;padding:6px 0;font-size:10px}
 .stp.cur{border-color:var(--amber);color:var(--amber)}
 #bottombar{
 flex:0 0 auto;border-top:1px solid var(--edge);background:var(--panel);
@@ -194,7 +192,7 @@ background:rgba(8,8,12,.82);
 }
 .modal.hidden{display:none}
 .modalbox{
-width:min(640px,94vw);max-height:82vh;overflow:auto;
+width:min(640px,96vw);max-height:82vh;overflow:auto;
 background:var(--panel);border:1px solid var(--edge2);border-radius:16px;padding:16px;
 display:flex;flex-direction:column;gap:10px;
 }
@@ -205,19 +203,19 @@ display:flex;flex-direction:column;gap:10px;
 .mrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .mrow select{width:auto;flex:0 0 auto}
 .dlink{
-color:var(--cyan);font-weight:800;font-size:10px;text-transform:uppercase;
+color:var(--cyan);font-weight:800;font-size:11px;text-transform:uppercase;
 text-decoration:underline;text-underline-offset:3px;cursor:pointer;
 padding:8px 0;display:inline-block;
 }
 .dlink.dead{opacity:.35;pointer-events:none;text-decoration:none}
-.msz{color:var(--dim);font-size:9px}
+.msz{color:var(--dim);font-size:10px}
 #fxStack{max-height:300px;overflow:auto}
-#seqSteps{display:flex;gap:3px;flex-wrap:wrap;margin-top:5px}
+#seqSteps{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
 #presetChips{max-height:230px;overflow:auto;grid-template-columns:1fr 1fr}
 #debugPre{
 background:var(--bg);border:1px solid var(--edge);border-radius:6px;
-height:120px;overflow:auto;font:9px/1.5 Consolas,"Courier New",monospace;
-padding:4px 6px;white-space:pre-wrap;word-break:break-word;
+height:120px;overflow:auto;font:10px/1.5 Consolas,"Courier New",monospace;
+padding:5px 7px;white-space:pre-wrap;word-break:break-word;
 }
 .dl.info{color:var(--dim)}
 .dl.ok{color:var(--green)}
@@ -231,7 +229,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div class="logo-mark">CV</div>
 <h1>CHROMA<span>VORE</span></h1>
 </div>
-<div class="badge">v43 ✦ MOBILE</div>
+<div class="badge">v44 ✦ MOBILE</div>
 <div class="spacer"></div>
 <span class="openwrap"><button id="btnOpen">Open</button><input type="file" id="fileTap" accept="image/*,video/*"></span>
 <button id="btnLink">Link</button>
@@ -277,12 +275,12 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Output Mode<span class="dia">✦</span><button class="hb" data-h="output">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-output"><b>4 output modes ✦.</b> PIXELS · SYMBOLS ✦ · BRAILLE ✦ · CRT . Glyph/CRT modes cap their grid automatically for speed.</div>
+<div class="hbx" id="h-output"><b>4 output modes ✦.</b> PIXELS · SYMBOLS ✦ · BRAILLE ✦ · CRT ✦. Glyph/CRT modes cap their grid automatically for speed.</div>
 <select id="selOut"></select>
 </div>
 <div class="sec">
 <h3>Grid + Pattern<button class="hb" data-h="grid">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-grid"><b>Pixel grid controls.</b> PIXEL · SHAPE ✦ · DITHER · SCALE · ROTATE ✦ · OFF X/Y ✦ · SEED (⚄).<br><br><b>MAX RES ✦</b> caps source rasterization — 640–960 keeps a flat 30 FPS on this phone.<br><br><b>FREEZE GUARDS ✦:</b> sources clamp to mobile-safe canvas sizes, dither grids cap at ~900k cells, zero per-frame canvas re-allocation.</div>
+<div class="hbx" id="h-grid"><b>Pixel grid controls.</b> PIXEL · SHAPE ✦ · DITHER · SCALE · ROTATE ✦ · OFF X/Y ✦ · SEED (⚄).<br><br><b>MAX RES ✦</b> caps source rasterization — 640–960 keeps a flat 30 FPS on this phone.<br><br><b>FREEZE GUARDS ✦:</b> sources clamp to mobile-safe canvas sizes, dither grids cap at ~900k cells, zero per-frame canvas re-allocation.<br><br><b>v44 ✦:</b> sources always rasterize to EVEN dimensions — hardware video encoders refuse odd sides.</div>
 <div class="row"><label>Pixel</label><input type="range" id="rngPixel" min="1" max="8" step="1" value="3"><output id="outPixel">3</output></div>
 <div class="row"><label>Shape</label>
 <select id="selPixelShape">
@@ -487,7 +485,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div class="tabpane" id="paneSys">
 <div class="sec" style="border-color:var(--gold)">
 <h3 style="color:var(--gold)">Input Mode <em id="srcKind">TST</em><span class="dia">✦</span><button class="hb" data-h="input">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-input"><b>Source switching ✦.</b> OPEN = real tap-target file input (works in browsers and any wrapper whose WebView implements file selection). LINK ✦ = load from a pasted URL or base64/data-URL — <b>this is the path that works inside html2app-style shells, whose WebViews have no file picker at all</b>. TEST CARD = calibration art. Tap the canvas to browse (browser mode).<br><br>If OPEN ever does nothing on a first tap, the Debug Log will say so and point you at LINK.</div>
+<div class="hbx" id="h-input"><b>Source switching ✦.</b> OPEN = real tap-target file input (works in browsers and any wrapper whose WebView implements file selection). LINK ✦ = load from a pasted URL or base64/data-URL — <b>this is the path that works inside html2app-style shells, whose WebViews have no file picker at all</b>. TEST CARD = calibration art. Tap the canvas to browse (browser mode).<br><br>If OPEN ever does nothing on a first tap, the Debug Log says so and points you at LINK.</div>
 <select id="selInput">
 <option value="file">Open File…</option>
 <option value="test" selected>Test Card</option>
@@ -505,7 +503,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Record<span class="dia">✦</span><button class="hb" data-h="rec">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-rec"><b>Canvas recording ✦.</b> MP4 first-class (AVC where supported), WebM fallback. 5/15/30/60s, size-guarded. In shells without a download manager, the links may need a long-press → save.</div>
+<div class="hbx" id="h-rec"><b>Canvas recording ✦.</b> MP4 first-class (AVC where supported), WebM fallback. 5/15/30/60s, size-guarded.<br><br><b>v44 encoder fix ✦:</b> hardware H.264 encoders refuse ODD frame dimensions (your 960×2133 photo was the culprit — "encoder configuration not supported"). Sources now rasterize to even dimensions, the recorder falls back to an even-sized proxy canvas if it ever sees an odd side, streams are explicitly released on stop (no more second-take hitch), and bitrate stays inside the phone encoder's 6–24 Mbps comfort zone.</div>
 <div class="row"><label>Length</label>
 <select id="recDur">
 <option value="5" selected>5s</option>
@@ -555,7 +553,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Debug Log <em id="dbgCount">0</em><span class="dia">✦</span><button class="hb" data-h="dbg">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-dbg"><b>Boot + runtime log ✦.</b> Records every milestone, load, guard clamp and render error, plus the full file-open chain (tap → picker → bytes → decode). COPY the transcript when reporting bugs.</div>
+<div class="hbx" id="h-dbg"><b>Boot + runtime log ✦.</b> Records every milestone, load, guard clamp and render error, plus the full file-open chain (tap → picker → bytes → decode) and recorder events. COPY the transcript when reporting bugs.</div>
 <pre id="debugPre"></pre>
 <div class="togs"><button class="mini" id="btnDbgClear">Clear</button><button class="mini" id="btnDbgCopy">Copy</button></div>
 </div>
@@ -588,18 +586,13 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div id="help" class="modal hidden">
 <div class="modalbox">
-<div class="mtitle">// Field Manual — v43 Mobile</div>
+<div class="mtitle">// Field Manual — v44 Mobile</div>
 <div class="msep"></div>
 <div class="msub">
 <span class="dia">✦</span> <b>GOLD DIAMOND = not in the original Ditherboy.</b> Tap <b>?</b> on any section for deep help.<br><br>
-<div class="mhead">// What v43 fixes</div>
-<b>THE BLACK-SCREEN SYNTAX BUG:</b> the v42 recorder patch left two orphan chunks of recorder code sitting at the TOP LEVEL of the script (outside any function). Their bare <b>return;</b> statements are illegal there, so the whole script died at boot with "illegal return statement" — black canvas, dead buttons. v43 deletes both orphan chunks; all recorder logic now lives ONLY inside startRec() and the two record buttons.<br><br>
-<div class="mhead">// What v42 fixed (html2app edition)</div>
-html2app wraps pages in a Flutter WebView whose bridge has storage/vibration/ads but <b>no file picker</b> — that's why OPEN did nothing with zero log lines. v42:<br>
-• <b>OPEN</b> is now a real tap target (a transparent file input over the button) so it works in any shell that DOES support uploads, including plain browsers.<br>
-• <b>LINK ✦</b> loads images from a pasted URL or base64/data-URL — the path that works inside html2app.<br>
-• If a first OPEN tap produces no picker, the Debug Log says so and points at LINK.<br>
-• Gallery-straight picking requires a wrapper whose WebView implements file upload, or the Android Studio project from earlier builds.<br><br>
+<div class="mhead">// What v44 fixes</div>
+<b>MP4 "encoder configuration not supported"</b> — your 960×2133 photo has an ODD height; hardware H.264 encoders only accept even dimensions. Now: sources rasterize to even dimensions, the recorder uses an even-sized proxy canvas as a fallback, streams are released on stop (kills the second-take hitch), and bitrate is capped at 6–24 Mbps.<br>
+This build also removes the half-merged recorder code left over from the last round-trip — one clean startRec, no orphan statements.<br><br>
 <div class="mhead">// Pipeline</div>
 SOURCE → ADJUST → COLOR LAB (pre) → <b>DITHER ENGINE</b> → COLOR LAB (post) → OUTPUT MODE → FX STACK → FEEDBACK/TRAILS.<br><br>
 <div class="mhead">// Performance Tips</div>
@@ -654,16 +647,21 @@ if(cnt)cnt.textContent="!";
 </script>
 <script>
 /*
-CHROMAVORE v43 MOBILE — changelog:
-1. SYNTAX FIX (the black-screen killer): v42's recorder patch left two
-orphan code chunks at TOP LEVEL after startRec() — their bare
-"return;" statements are illegal outside a function, so the script
-threw "illegal return statement" at boot and nothing ran. Both orphan
-chunks are deleted; recorder logic lives ONLY inside startRec() and
-the btnRec / btnRecMp4 handlers.
-Everything else identical to v42 (real-tap OPEN, LINK loader, picker
-watchdog, byte-handoff hooks, freeze guards, heartbeat, palette LUT,
-32 engines / 29 FX, MP4/WebM with encoder-release fix, GIF playback).
+CHROMAVORE v44 MOBILE — changelog:
+1. MP4 ENCODER FIX: hardware H.264 encoders reject ODD frame dimensions
+("the given encoder configuration is not supported"). The user's
+960x2133 photo was the trigger. Now:
+   - rasterImage / drawVidFrame round every source to EVEN dimensions.
+   - startRec falls back to an even-sized proxy canvas (rAF pump) if the
+     output canvas is ever odd-sided.
+   - bitrate clamped to 6–24 Mbps (phone encoder comfort zone).
+2. SECOND-TAKE HITCH (carried from v43): capture streams are explicitly
+   stopped in onstop/onerror so the encoder releases between takes.
+3. CLEANUP: removed the orphaned half-merged recorder statements left
+   over from the previous round-trip — exactly one startRec now.
+Everything else identical to v42/v43 (real-tap OPEN, LINK loader,
+picker watchdog, freeze guards, heartbeat, palette LUT, 32 engines /
+29 FX, GIF playback + fallback CDN, watchdog).
 */
 "use strict";
 const NL=String.fromCharCode(10);
@@ -691,7 +689,7 @@ if(tgt&&tgt!==window&&tgt.tagName)return;
 var msg=(e&&typeof e.message==="string"&&e.message.length)?e.message:"";
 if(msg)dlog("RUNTIME ERROR: "+msg,"err");
 });
-dlog("CHROMAVORE v43 MOBILE boot sequence start","ok");
+dlog("CHROMAVORE v44 MOBILE boot sequence start","ok");
 dlog("Debug log + watchdog online","info");
 const $=id=>document.getElementById(id);
 const outCanvas=$("out"), octx=outCanvas.getContext("2d",{alpha:false});
@@ -857,6 +855,8 @@ const area=w*h;
 if(area>MAXAREA){const f=Math.sqrt(MAXAREA/area);w=Math.max(2,Math.round(w*f));h=Math.max(2,Math.round(h*f));}
 return [w,h];
 }
+/* v44: hardware encoders only accept EVEN dimensions */
+function evenize(n){return n+(n&1);}
 function applyColorLab(d){
 const useGain=(S.gainR!==0||S.gainG!==0||S.gainB!==0);
 const useLift=(S.liftR!==0||S.liftG!==0||S.liftB!==0);
@@ -1772,10 +1772,10 @@ c.fillText("CHROMAVORE",40,160);
 c.font="bold 20px monospace";c.fillStyle="#62ff7a";
 c.fillText("TEST CARD // TAP CANVAS OR HIT OPEN",42,195);
 const w=S.maxRes,h=Math.max(2,Math.round(S.maxRes*540/960));
-srcCanvas.width=w;srcCanvas.height=h;
+srcCanvas.width=evenize(w);srcCanvas.height=evenize(h);
 const sc=srcCanvas.getContext("2d");
 sc.imageSmoothingEnabled=true;
-sc.drawImage(testBase,0,0,w,h);
+sc.drawImage(testBase,0,0,srcCanvas.width,srcCanvas.height);
 }
 function applyMaxRes(){
 if(sourceKind==="image"&&lastImage){rasterImage(lastImage);}
@@ -1907,7 +1907,6 @@ routeBytes(u,type);
 dlog("Blob read failed: "+e.message,"err");
 }
 }
-/* v42 LINK loader: URL with CORS fetch + <img crossOrigin> fallback */
 async function loadFromUrl(url){
 url=(url||"").trim();
 if(!url){dlog("LINK: empty URL","warn");return;}
@@ -1955,7 +1954,6 @@ $("linkModal").classList.add("hidden");
 dlog("LINK: base64 decode failed: "+e.message,"err");
 }
 }
-/* v42 picker watchdog: explain a dead first tap instead of silence */
 let pickerHintShown=false;
 function armPickerWatchdog(){
 if(pickerHintShown)return;
@@ -1977,15 +1975,15 @@ function rasterImage(im){
 const scale=Math.min(1,S.maxRes/im.naturalWidth);
 let w=Math.max(2,Math.round(im.naturalWidth*scale)),h=Math.max(2,Math.round(im.naturalHeight*scale));
 const ss=safeSourceSize(w,h);
-srcCanvas.width=ss[0];srcCanvas.height=ss[1];
+/* v44: even dimensions for hardware encoders */
+w=evenize(ss[0]);h=evenize(ss[1]);
+srcCanvas.width=w;srcCanvas.height=h;
 for(let i=0;i<4&&(srcCanvas.width<2||srcCanvas.height<2);i++){
 srcCanvas.width=Math.max(2,srcCanvas.width>>1);
 srcCanvas.height=Math.max(2,srcCanvas.height>>1);
 }
-if(srcCanvas.width!==ss[0]||srcCanvas.height!==ss[1]){
-dlog("SOURCE GUARD: canvas backing failed — reduced to "+srcCanvas.width+"x"+srcCanvas.height,"warn");
-}else if(ss[0]!==w||ss[1]!==h){
-dlog("SOURCE GUARD: raster clamped to "+ss[0]+"x"+ss[1]+" (mobile canvas limits)","warn");
+if(srcCanvas.width!==w||srcCanvas.height!==h){
+dlog("SOURCE GUARD: raster clamped/evensized to "+srcCanvas.width+"x"+srcCanvas.height,"warn");
 }
 srcCanvas.getContext("2d").drawImage(im,0,0,srcCanvas.width,srcCanvas.height);
 feedbackCanvas.width=0;trailCanvas.width=0;
@@ -2043,7 +2041,7 @@ if(vidSrc.readyState>=2&&vidSrc.videoWidth){
 const scale=Math.min(1,S.maxRes/vidSrc.videoWidth);
 let w=Math.max(2,Math.round(vidSrc.videoWidth*scale)),h=Math.max(2,Math.round(vidSrc.videoHeight*scale));
 const ss=safeSourceSize(w,h);
-srcCanvas.width=ss[0];srcCanvas.height=ss[1];
+srcCanvas.width=evenize(ss[0]);srcCanvas.height=evenize(ss[1]);
 srcCanvas.getContext("2d").drawImage(vidSrc,0,0,srcCanvas.width,srcCanvas.height);
 if(!S.live)render();
 }
@@ -2071,7 +2069,7 @@ function pushGifToSrc(){
 const scale=Math.min(1,S.maxRes/gifCanvas.width);
 let w=Math.max(2,Math.round(gifCanvas.width*scale)),h=Math.max(2,Math.round(gifCanvas.height*scale));
 const ss=safeSourceSize(w,h);
-srcCanvas.width=ss[0];srcCanvas.height=ss[1];
+srcCanvas.width=evenize(ss[0]);srcCanvas.height=evenize(ss[1]);
 const sc=srcCanvas.getContext("2d");
 sc.fillStyle="#000";sc.fillRect(0,0,srcCanvas.width,srcCanvas.height);
 sc.drawImage(gifCanvas,0,0,srcCanvas.width,srcCanvas.height);
@@ -2152,7 +2150,6 @@ return;
 }
 file.arrayBuffer().then(buf=>parseGifBuffer(buf,file.name||"")).catch(err=>dlog("GIF file read failed: "+err.message,"err"));
 }
-/* open paths: real tap input (header), hidden programmatic input, canvas */
 ["fileTap","fileInput"].forEach(id=>{
 const el=$(id);
 if(!el)return;
@@ -2621,15 +2618,16 @@ buildPaletteChips();syncChips();schedule();
 dlog("Palette extracted from source ("+n+" colors)","ok");
 });
 /* ============================================================
-RECORDER — v43: all recorder logic lives INSIDE startRec() and the
-two button handlers. No top-level fragments, no illegal returns.
+RECORDER — v44: even-dim proxy fallback + encoder-safe bitrate +
+explicit stream release. ONE clean startRec, no orphan statements.
 ============================================================ */
-let recorder=null,recChunks=[],recTimer=0,recWasLive=false,recording=false;
+let recChunks=[],recTimer=0,recWasLive=false,recording=false;
+let recPumpRAF=0,recProxy=null;
 function fmtSize(b){return b>1048576?(b/1048576).toFixed(2)+" MB":(b/1024).toFixed(0)+" KB";}
 function recBitrate(){
 const px=outCanvas.width*outCanvas.height;
 const base=960*540;
-return Math.min(48000000,Math.max(8000000,Math.round(8000000*(px/base))));
+return Math.min(24000000,Math.max(6000000,Math.round(6000000*(px/base))));
 }
 function bakeExportCanvas(){
 const sc0=Math.max(1,Math.round(S.exportScale||1));
@@ -2645,6 +2643,10 @@ x.imageSmoothingEnabled=false;
 x.drawImage(outCanvas,0,0,c.width,c.height);
 return c;
 }
+function killRecStreams(stream){
+try{stream.getTracks().forEach(t=>t.stop());}catch(e){}
+if(recPumpRAF){cancelAnimationFrame(recPumpRAF);recPumpRAF=0;}
+}
 function startRec(mime,ext,label){
 if(recording)return;
 if(typeof MediaRecorder==="undefined"||!outCanvas.captureStream){
@@ -2653,7 +2655,20 @@ dlog("MediaRecorder unavailable","warn");
 return;
 }
 const dur=parseInt($("recDur").value,10)||5;
-const stream=outCanvas.captureStream(30);
+/* v44: hardware H.264 encoders refuse ODD dimensions — proxy if needed */
+let source=outCanvas;
+if(outCanvas.width%2||outCanvas.height%2){
+if(!recProxy)recProxy=document.createElement("canvas");
+recProxy.width=evenize(outCanvas.width);
+recProxy.height=evenize(outCanvas.height);
+const pc=recProxy.getContext("2d");
+pc.drawImage(outCanvas,0,0);
+const pump=()=>{recPumpRAF=requestAnimationFrame(pump);pc.drawImage(outCanvas,0,0);};
+pump();
+source=recProxy;
+dlog("Recorder: odd canvas dims — using even proxy "+recProxy.width+"x"+recProxy.height,"warn");
+}
+const stream=source.captureStream(30);
 let br=recBitrate();
 const estBytes=br/8*dur;
 if(estBytes>400e6){
@@ -2663,7 +2678,7 @@ dlog("Recorder guard: bitrate capped at "+Math.round(br/1e6)+" Mbps to keep esti
 let rec;
 try{rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:br});}
 catch(e){
-stream.getTracks().forEach(t=>t.stop());
+killRecStreams(stream);
 setText("recStatus","recorder failed");
 dlog("MediaRecorder init failed: "+e.message,"err");
 return;
@@ -2673,8 +2688,7 @@ if(!S.live)setLive(true);
 rec.ondataavailable=e=>{if(e.data&&e.data.size)recChunks.push(e.data);};
 rec.onstop=()=>{
 recording=false;
-// explicitly stop the stream to release the hardware encoder
-stream.getTracks().forEach(t=>t.stop());
+killRecStreams(stream);
 const blob=new Blob(recChunks,{type:mime.split(";")[0]});
 const link=ext==="mp4"?$("dlMp4"):$("dlWebm");
 if(link){
@@ -2688,16 +2702,16 @@ dlog("Recording complete: "+label+" ("+fmtSize(blob.size)+")","ok");
 };
 rec.onerror=(e)=>{
 recording=false;
-stream.getTracks().forEach(t=>t.stop());
+killRecStreams(stream);
 setText("recStatus","recorder error");
-dlog("MediaRecorder error: "+(e.error?e.error.message:"unknown"),"err");
+dlog("MediaRecorder error: "+(e.error?e.error.message:"unknown")+" — try WebM or lower MAX RES","err");
 setLive(recWasLive);
 };
 try{
 rec.start();
 }catch(e){
 recording=false;
-stream.getTracks().forEach(t=>t.stop());
+killRecStreams(stream);
 setText("recStatus","start failed");
 dlog("MediaRecorder start failed: "+e.message,"err");
 setLive(recWasLive);
@@ -2705,7 +2719,7 @@ return;
 }
 let left=dur;
 setText("recStatus","rec "+label+" "+dur+"s");
-dlog("Recording started: "+label+" for "+dur+"s @ "+Math.round(br/1e6)+" Mbps","ok");
+dlog("Recording started: "+label+" for "+dur+"s @ "+Math.round(br/1e6)+" Mbps from "+source.width+"x"+source.height,"ok");
 clearInterval(recTimer);
 recTimer=setInterval(()=>{
 left--;
@@ -2924,7 +2938,7 @@ document.querySelectorAll(".tabpane").forEach(p=>p.classList.toggle("on",p.id===
 });
 });
 dlog("Boot complete — drawing test card","ok");
-dlog("v43: recorder syntax fix online — no more top-level fragments","ok");
+dlog("v44: even-dim recorder + encoder-safe bitrate online","ok");
 dlog(gifDecoderReady()?"gifuct-js decoder online (GIF playback ready)":"gifuct-js not ready yet — fallback CDN may still be loading; GIFs fall back to first frame until then",gifDecoderReady()?"ok":"warn");
 drawTestCard();
 syncUI();
