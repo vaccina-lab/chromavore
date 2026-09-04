@@ -118,20 +118,20 @@ font-size:10px;font-weight:900;letter-spacing:1px;text-transform:uppercase;
 display:flex;align-items:center;gap:6px;margin-bottom:8px;color:var(--ink);
 min-height:24px;
 }
-.sec h3 em{color:var(--dim);font-style:normal;font-size:9px;font-weight:600}
+.sec h3 em{color:var(--dim);font-style:normal;font-size:8px;font-weight:600}
 .sec.collapsed> *:not(h3){display:none}
 .dia{color:var(--gold);font-size:10px;margin-left:2px;text-shadow:0 0 6px var(--gold)}
 .fxdia{color:var(--gold);font-size:8px;margin-left:2px;text-shadow:0 0 4px var(--gold)}
-.hb{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--edge);border:1px solid var(--edge2);color:var(--dim);font-size:9px;font-weight:900;cursor:pointer;margin-left:3px;flex-shrink:0;line-height:1;padding:0;transition:all .15s}
+.hb{display:inline-flex;align-items:center;justify-content:center;width:20px;height:20px;border-radius:50%;background:var(--edge);border:1px solid var(--edge2);color:var(--dim);font-size:8px;font-weight:900;cursor:pointer;margin-left:3px;flex-shrink:0;line-height:1;padding:0;transition:all .15s}
 .hb:hover{background:var(--neon);color:#fff;border-color:var(--neon)}
 .hb.act{background:var(--cyan);color:#000;border-color:var(--cyan)}
 .hbx{display:none;background:var(--bg);border:1px solid var(--edge2);border-radius:8px;padding:7px 9px;margin:4px 0 8px;font-size:10px;color:var(--dim);line-height:1.55;max-height:150px;overflow-y:auto}
 .hbx.show{display:block}
 .hbx b{color:var(--cyan);font-weight:700}
 .hbx i{color:var(--gold);font-style:normal;font-weight:700}
-.chev{margin-left:auto;color:var(--dim);transition:transform .2s;font-size:11px}
+.chev{margin-left:auto;color:var(--dim);transition:transform .2s;font-size:10px}
 .sec.collapsed .chev{transform:rotate(-90deg)}
-.row{display:flex;align-items:center;gap:6px;margin:6px 0;min-height:30px}
+.row{display:flex;align-items:center;gap:5px;margin:6px 0;min-height:30px}
 .row label{flex:0 0 68px;font-size:10px;color:var(--dim);font-weight:800;text-transform:uppercase}
 .row output{
 flex:0 0 44px;text-align:right;font-size:10px;color:var(--amber);
@@ -156,24 +156,24 @@ padding:6px;cursor:pointer;min-height:44px;
 }
 .chip.active{border-color:var(--neon);box-shadow:0 0 0 1px var(--neon)}
 .chip .sw{
-height:14px;border-radius:5px;border:1px solid rgba(0,0,0,.5);margin-bottom:4px;
+height:14px;border-radius:4px;border:1px solid rgba(0,0,0,.5);margin-bottom:4px;
 }
 .chip .nm{font-size:8px;font-weight:800;color:var(--dim);letter-spacing:.2px;text-transform:uppercase}
 .chip.active .nm{color:var(--ink)}
 .fxrow{
-display:flex;align-items:center;gap:5px;padding:5px 0;
+display:flex;align-items:center;gap:4px;padding:4px 0;
 border-bottom:1px dashed var(--edge);
 }
 .fxrow:last-child{border-bottom:none}
 .fxrow.off .fxnm,.fxrow.off input{opacity:.35}
-.fxrow .mv{padding:4px 6px;font-size:9px;min-width:34px;min-height:32px}
-.fxrow .fxon{flex:0 0 44px;padding:6px 0;font-size:9px;min-height:32px}
+.fxrow .mv{padding:3px 5px;font-size:8px;min-width:34px;min-height:32px}
+.fxrow .fxon{flex:0 0 44px;padding:5px 0;font-size:8px;min-height:32px}
 .fxrow .fxnm{
 flex:0 0 82px;font-size:8px;font-weight:900;letter-spacing:.2px;
 text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
 .fxrow input[type=range]{flex:1}
-.stp{min-width:34px;min-height:34px;padding:6px 0;font-size:10px}
+.stp{min-width:34px;min-height:34px;padding:6px 0;font-size:9px}
 .stp.cur{border-color:var(--amber);color:var(--amber)}
 #bottombar{
 flex:0 0 auto;border-top:1px solid var(--edge);background:var(--panel);
@@ -194,7 +194,7 @@ background:rgba(8,8,12,.82);
 }
 .modal.hidden{display:none}
 .modalbox{
-width:min(640px,96vw);max-height:82vh;overflow:auto;
+width:min(640px,94vw);max-height:82vh;overflow:auto;
 background:var(--panel);border:1px solid var(--edge2);border-radius:16px;padding:16px;
 display:flex;flex-direction:column;gap:10px;
 }
@@ -205,19 +205,19 @@ display:flex;flex-direction:column;gap:10px;
 .mrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .mrow select{width:auto;flex:0 0 auto}
 .dlink{
-color:var(--cyan);font-weight:800;font-size:11px;text-transform:uppercase;
+color:var(--cyan);font-weight:800;font-size:10px;text-transform:uppercase;
 text-decoration:underline;text-underline-offset:3px;cursor:pointer;
 padding:8px 0;display:inline-block;
 }
 .dlink.dead{opacity:.35;pointer-events:none;text-decoration:none}
-.msz{color:var(--dim);font-size:10px}
+.msz{color:var(--dim);font-size:9px}
 #fxStack{max-height:300px;overflow:auto}
-#seqSteps{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}
+#seqSteps{display:flex;gap:3px;flex-wrap:wrap;margin-top:5px}
 #presetChips{max-height:230px;overflow:auto;grid-template-columns:1fr 1fr}
 #debugPre{
 background:var(--bg);border:1px solid var(--edge);border-radius:6px;
-height:120px;overflow:auto;font:10px/1.5 Consolas,"Courier New",monospace;
-padding:5px 7px;white-space:pre-wrap;word-break:break-word;
+height:120px;overflow:auto;font:9px/1.5 Consolas,"Courier New",monospace;
+padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 }
 .dl.info{color:var(--dim)}
 .dl.ok{color:var(--green)}
@@ -231,7 +231,7 @@ padding:5px 7px;white-space:pre-wrap;word-break:break-word;
 <div class="logo-mark">CV</div>
 <h1>CHROMA<span>VORE</span></h1>
 </div>
-<div class="badge">v42 ✦ MOBILE</div>
+<div class="badge">v43 ✦ MOBILE</div>
 <div class="spacer"></div>
 <span class="openwrap"><button id="btnOpen">Open</button><input type="file" id="fileTap" accept="image/*,video/*"></span>
 <button id="btnLink">Link</button>
@@ -277,7 +277,7 @@ padding:5px 7px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Output Mode<span class="dia">✦</span><button class="hb" data-h="output">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-output"><b>4 output modes ✦.</b> PIXELS · SYMBOLS ✦ · BRAILLE ✦ · CRT ✦. Glyph/CRT modes cap their grid automatically for speed.</div>
+<div class="hbx" id="h-output"><b>4 output modes ✦.</b> PIXELS · SYMBOLS ✦ · BRAILLE ✦ · CRT . Glyph/CRT modes cap their grid automatically for speed.</div>
 <select id="selOut"></select>
 </div>
 <div class="sec">
@@ -588,11 +588,13 @@ padding:5px 7px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div id="help" class="modal hidden">
 <div class="modalbox">
-<div class="mtitle">// Field Manual — v42 Mobile</div>
+<div class="mtitle">// Field Manual — v43 Mobile</div>
 <div class="msep"></div>
 <div class="msub">
 <span class="dia">✦</span> <b>GOLD DIAMOND = not in the original Ditherboy.</b> Tap <b>?</b> on any section for deep help.<br><br>
-<div class="mhead">// What v42 fixes (html2app edition)</div>
+<div class="mhead">// What v43 fixes</div>
+<b>THE BLACK-SCREEN SYNTAX BUG:</b> the v42 recorder patch left two orphan chunks of recorder code sitting at the TOP LEVEL of the script (outside any function). Their bare <b>return;</b> statements are illegal there, so the whole script died at boot with "illegal return statement" — black canvas, dead buttons. v43 deletes both orphan chunks; all recorder logic now lives ONLY inside startRec() and the two record buttons.<br><br>
+<div class="mhead">// What v42 fixed (html2app edition)</div>
 html2app wraps pages in a Flutter WebView whose bridge has storage/vibration/ads but <b>no file picker</b> — that's why OPEN did nothing with zero log lines. v42:<br>
 • <b>OPEN</b> is now a real tap target (a transparent file input over the button) so it works in any shell that DOES support uploads, including plain browsers.<br>
 • <b>LINK ✦</b> loads images from a pasted URL or base64/data-URL — the path that works inside html2app.<br>
@@ -652,19 +654,16 @@ if(cnt)cnt.textContent="!";
 </script>
 <script>
 /*
-CHROMAVORE v42 MOBILE — changelog:
-1. html2app FIX: that shell's Flutter WebView has NO file-picker bridge,
-so programmatic input.click() died silently. OPEN is now a REAL tap
-target (transparent <input type=file> layered over the button) — works
-in browsers and any wrapper that implements file selection.
-2. LINK ✦ loader: paste a direct URL (CORS fetch with <img crossOrigin>
-fallback) or a data-URL / raw base64 — the input path that works inside
-picker-less shells like html2app.
-3. PICKER WATCHDOG: if a first OPEN tap yields no picker within 2.5s,
-the Debug Log explains why and points at LINK. No more silent no-ops.
-Everything else identical to v41 (byte-handoff bridge hooks retained,
-freeze guards, heartbeat, palette LUT, 32 engines / 29 FX, MP4/WebM,
-GIF playback + fallback CDN, watchdog).
+CHROMAVORE v43 MOBILE — changelog:
+1. SYNTAX FIX (the black-screen killer): v42's recorder patch left two
+orphan code chunks at TOP LEVEL after startRec() — their bare
+"return;" statements are illegal outside a function, so the script
+threw "illegal return statement" at boot and nothing ran. Both orphan
+chunks are deleted; recorder logic lives ONLY inside startRec() and
+the btnRec / btnRecMp4 handlers.
+Everything else identical to v42 (real-tap OPEN, LINK loader, picker
+watchdog, byte-handoff hooks, freeze guards, heartbeat, palette LUT,
+32 engines / 29 FX, MP4/WebM with encoder-release fix, GIF playback).
 */
 "use strict";
 const NL=String.fromCharCode(10);
@@ -692,7 +691,7 @@ if(tgt&&tgt!==window&&tgt.tagName)return;
 var msg=(e&&typeof e.message==="string"&&e.message.length)?e.message:"";
 if(msg)dlog("RUNTIME ERROR: "+msg,"err");
 });
-dlog("CHROMAVORE v42 MOBILE boot sequence start","ok");
+dlog("CHROMAVORE v43 MOBILE boot sequence start","ok");
 dlog("Debug log + watchdog online","info");
 const $=id=>document.getElementById(id);
 const outCanvas=$("out"), octx=outCanvas.getContext("2d",{alpha:false});
@@ -2621,6 +2620,10 @@ S.palette="custom";
 buildPaletteChips();syncChips();schedule();
 dlog("Palette extracted from source ("+n+" colors)","ok");
 });
+/* ============================================================
+RECORDER — v43: all recorder logic lives INSIDE startRec() and the
+two button handlers. No top-level fragments, no illegal returns.
+============================================================ */
 let recorder=null,recChunks=[],recTimer=0,recWasLive=false,recording=false;
 function fmtSize(b){return b>1048576?(b/1048576).toFixed(2)+" MB":(b/1024).toFixed(0)+" KB";}
 function recBitrate(){
@@ -2660,53 +2663,46 @@ dlog("Recorder guard: bitrate capped at "+Math.round(br/1e6)+" Mbps to keep esti
 let rec;
 try{rec=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:br});}
 catch(e){
-  stream.getTracks().forEach(t=>t.stop());
-  setText("recStatus","recorder failed");
-  dlog("MediaRecorder init failed: "+e.message,"err");
-  return;
+stream.getTracks().forEach(t=>t.stop());
+setText("recStatus","recorder failed");
+dlog("MediaRecorder init failed: "+e.message,"err");
+return;
 }
 recChunks=[];recWasLive=S.live;recording=true;
 if(!S.live)setLive(true);
-
 rec.ondataavailable=e=>{if(e.data&&e.data.size)recChunks.push(e.data);};
-
 rec.onstop=()=>{
-  recording=false;
-  // THE FIX: explicitly stop the stream to release the hardware encoder
-  stream.getTracks().forEach(t=>t.stop());
-  
-  const blob=new Blob(recChunks,{type:mime.split(";")[0]});
-  const link=ext==="mp4"?$("dlMp4"):$("dlWebm");
-  if(link){
-    if(link.href) URL.revokeObjectURL(link.href); // prevent memory leaks
-    link.href=URL.createObjectURL(blob);
-    link.style.display="inline-block";
-  }
-  setText("recStatus",label+" ready");
-  setLive(recWasLive);
-  dlog("Recording complete: "+label+" ("+fmtSize(blob.size)+")","ok");
-};
-
-// NEW: catch silent failures
-rec.onerror=(e)=>{
-  recording=false;
-  stream.getTracks().forEach(t=>t.stop());
-  setText("recStatus","recorder error");
-  dlog("MediaRecorder error: "+(e.error?e.error.message:"unknown"),"err");
-  setLive(recWasLive);
-};
-
-try {
-  rec.start();
-} catch(e) {
-  recording=false;
-  stream.getTracks().forEach(t=>t.stop());
-  setText("recStatus","start failed");
-  dlog("MediaRecorder start failed: "+e.message,"err");
-  setLive(recWasLive);
-  return;
+recording=false;
+// explicitly stop the stream to release the hardware encoder
+stream.getTracks().forEach(t=>t.stop());
+const blob=new Blob(recChunks,{type:mime.split(";")[0]});
+const link=ext==="mp4"?$("dlMp4"):$("dlWebm");
+if(link){
+if(link.href)URL.revokeObjectURL(link.href);
+link.href=URL.createObjectURL(blob);
+link.style.display="inline-block";
 }
-
+setText("recStatus",label+" ready");
+setLive(recWasLive);
+dlog("Recording complete: "+label+" ("+fmtSize(blob.size)+")","ok");
+};
+rec.onerror=(e)=>{
+recording=false;
+stream.getTracks().forEach(t=>t.stop());
+setText("recStatus","recorder error");
+dlog("MediaRecorder error: "+(e.error?e.error.message:"unknown"),"err");
+setLive(recWasLive);
+};
+try{
+rec.start();
+}catch(e){
+recording=false;
+stream.getTracks().forEach(t=>t.stop());
+setText("recStatus","start failed");
+dlog("MediaRecorder start failed: "+e.message,"err");
+setLive(recWasLive);
+return;
+}
 let left=dur;
 setText("recStatus","rec "+label+" "+dur+"s");
 dlog("Recording started: "+label+" for "+dur+"s @ "+Math.round(br/1e6)+" Mbps","ok");
@@ -2714,42 +2710,9 @@ clearInterval(recTimer);
 recTimer=setInterval(()=>{
 left--;
 if(left<=0){
-  clearInterval(recTimer);
-  if(rec && rec.state==="recording") rec.stop();
-}
-else setText("recStatus","rec "+label+" "+left+"s");
-},1000);
-}
-const dur=parseInt($("recDur").value,10)||5;
-const stream=outCanvas.captureStream(30);
-let br=recBitrate();
-const estBytes=br/8*dur;
-if(estBytes>400e6){
-br=Math.max(4e6,Math.floor(400e6*8/dur));
-dlog("Recorder guard: bitrate capped at "+Math.round(br/1e6)+" Mbps to keep estimated size under 400MB","warn");
-}
-try{recorder=new MediaRecorder(stream,{mimeType:mime,videoBitsPerSecond:br});}
-catch(e){setText("recStatus","recorder failed");dlog("MediaRecorder init failed: "+e.message,"err");return;}
-recChunks=[];recWasLive=S.live;recording=true;
-if(!S.live)setLive(true);
-recorder.ondataavailable=e=>{if(e.data&&e.data.size)recChunks.push(e.data);};
-recorder.onstop=()=>{
-recording=false;
-const blob=new Blob(recChunks,{type:mime.split(";")[0]});
-const link=ext==="mp4"?$("dlMp4"):$("dlWebm");
-if(link){link.href=URL.createObjectURL(blob);link.style.display="inline-block";}
-setText("recStatus",label+" ready");
-setLive(recWasLive);
-dlog("Recording complete: "+label+" ("+fmtSize(blob.size)+")","ok");
-};
-recorder.start();
-let left=dur;
-setText("recStatus","rec "+label+" "+dur+"s");
-dlog("Recording started: "+label+" for "+dur+"s @ "+Math.round(br/1e6)+" Mbps","ok");
 clearInterval(recTimer);
-recTimer=setInterval(()=>{
-left--;
-if(left<=0){clearInterval(recTimer);if(recorder.state==="recording")recorder.stop();}
+if(rec&&rec.state==="recording")rec.stop();
+}
 else setText("recStatus","rec "+label+" "+left+"s");
 },1000);
 }
@@ -2765,9 +2728,6 @@ let mime=null;
 for(let i=0;i<candidates.length;i++){
 try{if(MediaRecorder.isTypeSupported(candidates[i])){mime=candidates[i];break;}}catch(e){}
 }
-if(!mime){setText("recStatus","MP4 unsupported — use WebM");dlog("MP4 encoding unsupported in this browser","warn");return;}
-startRec(mime,"mp4","MP4");
-});
 if(!mime){setText("recStatus","MP4 unsupported — use WebM");dlog("MP4 encoding unsupported in this browser — use the WEBM button","warn");return;}
 startRec(mime,"mp4","MP4");
 });
@@ -2964,7 +2924,7 @@ document.querySelectorAll(".tabpane").forEach(p=>p.classList.toggle("on",p.id===
 });
 });
 dlog("Boot complete — drawing test card","ok");
-dlog("v42: real-tap OPEN + LINK loader + picker watchdog online","ok");
+dlog("v43: recorder syntax fix online — no more top-level fragments","ok");
 dlog(gifDecoderReady()?"gifuct-js decoder online (GIF playback ready)":"gifuct-js not ready yet — fallback CDN may still be loading; GIFs fall back to first frame until then",gifDecoderReady()?"ok":"warn");
 drawTestCard();
 syncUI();
