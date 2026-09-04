@@ -2,12 +2,12 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0e0e14">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
-<meta name="theme-color" content="#0e0e14">
 <title>CHROMAVORE ✦ mobile dither lab</title>
-<script src="https://cdn.jsdelivr.net/npm/gifuct-js@2.1.2/dist/gifuct-js.min.js" onerror="var gs=document.createElement('script');gs.src='https://unpkg.com/gifuct-js@2.1.2/dist/gifuct-js.min.js';document.head.appendChild(gs);"></script>
+<!-- v43 OFFLINE: the gifuct-js CDN tag is GONE. Zero external requests.
+GIF playback is disabled in this build; GIFs fall back to a first-frame
+still via the existing fallback path. The file is 100% self-contained. -->
 <style>
 :root{
 --bg:#0e0e14;--panel:#16161f;--panel2:#1c1c28;--edge:#262636;--edge2:#363648;
@@ -173,15 +173,6 @@ text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowr
 .fxrow input[type=range]{flex:1}
 .stp{min-width:34px;min-height:34px;padding:6px 0;font-size:10px}
 .stp.cur{border-color:var(--amber);color:var(--amber)}
-/* v45: audio meter + target checkboxes + beat lamp */
-.meter{flex:1;height:8px;background:var(--bg);border:1px solid var(--edge);border-radius:4px;overflow:hidden}
-#audioMeterFill{height:100%;width:0%;background:linear-gradient(90deg,var(--green),var(--amber),var(--red));transition:width .08s linear}
-.atargets{display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:4px}
-.achk{display:flex;align-items:center;gap:4px;font-size:8px;font-weight:800;color:var(--dim);text-transform:uppercase;letter-spacing:.3px;background:var(--bg);border:1px solid var(--edge);border-radius:6px;padding:4px 5px;cursor:pointer;min-height:30px}
-.achk input{accent-color:var(--gold);width:11px;height:11px;margin:0;flex-shrink:0}
-.achk.on{border-color:var(--gold);color:var(--ink);box-shadow:0 0 0 1px rgba(255,215,0,.15)}
-.beatlamp{width:14px;height:14px;border-radius:50%;background:var(--edge);border:1px solid var(--edge2);flex:0 0 auto}
-.beatlamp.lit{background:var(--gold);border-color:var(--gold);box-shadow:0 0 10px var(--gold)}
 #bottombar{
 flex:0 0 auto;border-top:1px solid var(--edge);background:var(--panel);
 padding-bottom:env(safe-area-inset-bottom);
@@ -212,7 +203,7 @@ display:flex;flex-direction:column;gap:10px;
 .mrow{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 .mrow select{width:auto;flex:0 0 auto}
 .dlink{
-color:var(--cyan);font-weight:800;font-size:11px;text-transform:uppercase;
+color:var(--cyan);font-weight:800;font-size:10px;text-transform:uppercase;
 text-decoration:underline;text-underline-offset:3px;cursor:pointer;
 padding:8px 0;display:inline-block;
 }
@@ -224,7 +215,7 @@ padding:8px 0;display:inline-block;
 #debugPre{
 background:var(--bg);border:1px solid var(--edge);border-radius:6px;
 height:120px;overflow:auto;font:10px/1.5 Consolas,"Courier New",monospace;
-padding:4px 6px;white-space:pre-wrap;word-break:break-word;
+padding:5px 7px;white-space:pre-wrap;word-break:break-word;
 }
 .dl.info{color:var(--dim)}
 .dl.ok{color:var(--green)}
@@ -238,7 +229,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div class="logo-mark">CV</div>
 <h1>CHROMA<span>VORE</span></h1>
 </div>
-<div class="badge">v45 ✦ MOBILE</div>
+<div class="badge">v43 ✦ OFFLINE</div>
 <div class="spacer"></div>
 <span class="openwrap"><button id="btnOpen">Open</button><input type="file" id="fileTap" accept="image/*,video/*"></span>
 <button id="btnLink">Link</button>
@@ -251,7 +242,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div id="drop">
 <canvas id="out" width="960" height="540" title="Tap to open an image"></canvas>
 <div id="dropHint">DROP MEDIA OR TAP CANVAS</div>
-<noscript><div id="nojs">SCRIPTS ARE BLOCKED IN THIS PREVIEW.<br>Download this file and open it directly in Chrome (or host it as a real page) — Chromavore is a JavaScript app and cannot run with scripts disabled.</div></noscript>
+<noscript><div id="nojs">SCRIPTS ARE BLOCKED.<br>Open this file directly in Chrome.</div></noscript>
 </div>
 </section>
 <nav id="tabbar">
@@ -284,7 +275,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Output Mode<span class="dia">✦</span><button class="hb" data-h="output">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-output"><b>4 output modes ✦.</b> PIXELS · SYMBOLS ✦ · BRAILLE ✦ · CRT ✦. Glyph/CRT modes cap their grid automatically for speed.</div>
+<div class="hbx" id="h-output"><b>4 output modes ✦.</b> PIXELS · SYMBOLS ✦ · BRAILLE ✦ · CRT . Glyph/CRT modes cap their grid automatically for speed.</div>
 <select id="selOut"></select>
 </div>
 <div class="sec">
@@ -379,7 +370,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div class="tabpane" id="paneFx">
 <div class="sec">
 <h3>FX Stack <em>▲▼ to reorder</em><span class="dia">✦</span><button class="hb" data-h="fx">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-fx"><b>29 post-process effects ✦ (mobile set)</b> stacked top-to-bottom. ON/OFF + amount per row; ▲▼ reorders. Gold ◆ = Sequencer armed.<br><br><b>AUDIO HOOKS ✦ (v45):</b> FX PUMP scales every FX amount with loudness; FX STROBE force-fires a random FX for one beat; CUT SLAM re-rolls SLICE/DATAMOSH/VHS offsets on onsets.</div>
+<div class="hbx" id="h-fx"><b>29 post-process effects ✦ (mobile set)</b> stacked top-to-bottom. ON/OFF + amount per row; ▲▼ reorders. Gold ◆ = Sequencer armed.</div>
 <div id="fxStack"></div>
 <div class="togs">
 <button class="mini" id="btnFxOff">Off</button>
@@ -389,7 +380,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Sequencer<span class="dia">✦</span><button class="hb" data-h="seq">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-seq"><b>8-step FX sequencer ✦</b> — pick an FX, tap steps to arm, PLAY gates it on the BPM clock (TAP sets tempo).<br><br><b>AUDIO ✦ (v45):</b> with BEAT SYNC on, detected tempo rewrites BPM; with the SEQ SYNC target checked, detected beats snap the step forward and re-phase the clock.</div>
+<div class="hbx" id="h-seq"><b>8-step FX sequencer ✦</b> — pick an FX, tap steps to arm, PLAY gates it on the BPM clock (TAP sets tempo).</div>
 <select id="seqFxSel"></select>
 <div id="seqSteps"></div>
 <div class="row"><label>BPM</label><input type="range" id="rngBpm" min="60" max="240" step="1" value="120"><output id="outBpm">120</output></div>
@@ -399,36 +390,17 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div class="tabpane" id="paneMotion">
 <div class="sec">
 <h3>Live Mode<span class="dia">✦</span><button class="hb" data-h="live">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-live"><b>Live engine + AUDIO REACT ✦ (v45).</b><br><br><b>LIVE</b> starts the 30 FPS loop; <b>STEP</b> one tick. Modes: BASE · DRIFT · PARTY · CHANNEL SURF · ACID TRIP · POLTERGEIST. FAST MODE ✦ = 60.<br><br><b>AUDIO REACT ✦</b> opens the mic and runs a <b>dual-envelope onset detector</b>: a fast envelope chases the kick band (20–250 Hz) while a slow envelope tracks the average — a beat fires when fast crosses slow. Refractory window derives from the <b>auto-detected tempo</b>, so 200 BPM tracks stay articulate. <b>AUTO-GAIN</b> normalizes quiet/loud sources on top of <b>SENS</b>.<br><br><b>TARGETS are checkboxes — stack them:</b> level-driven (STRENGTH, FEEDBACK, BRIGHTNESS, HUE, JITTER, PIXEL) and beat-driven (FX PUMP, FX STROBE, PALETTE STAB, CUT SLAM, SEQ SYNC). <b>EVERYTHING ✦</b> toggles all 11. <b>BEAT SYNC ✦</b> writes detected tempo into BPM. The <b>BEAT lamp</b> flashes on every onset.<br><br><i>Shell note:</i> needs mic permission. Works in Chrome / your installed PWA; if a WebView shell refuses the mic, the Debug Log says so instead of crashing.<br><br><i>Tip:</i> hardcore-speed songs → FX STROBE + CUT SLAM + SEQ SYNC + FAST MODE.</div>
+<div class="hbx" id="h-live"><b>Live engine ✦.</b> LIVE = 30 FPS loop, STEP = one tick. Modes: BASE · DRIFT · PARTY · CHANNEL SURF · ACID TRIP · POLTERGEIST. FAST MODE ✦ = 60. Crash-proof loop + HEARTBEAT self-heal.</div>
 <select id="selMode"></select>
 <div class="togs">
 <button class="tog" id="btnLive2">Live</button>
 <button class="tog" id="btnStep2">Step</button>
-<button class="tog" id="togAudio">Audio React ✦</button>
-<button class="tog on" id="togBeatSync">Beat Sync ✦</button>
 <button class="tog" id="togFastMode">Fast Mode ✦</button>
 </div>
-<div class="atargets" id="audioTargets">
-<label class="achk"><input type="checkbox" data-at="strength" checked><span>Strength ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="feedback" checked><span>Feedback ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="brightness" checked><span>Brightness ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="hue" checked><span>Hue ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="jitter" checked><span>Jitter ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="pixel" checked><span>Pixel ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="fxpump"><span>FX Pump ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="fxstrobe"><span>FX Strobe ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="palettestab"><span>Palette Stab ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="cutslam"><span>Cut Slam ✦</span></label>
-<label class="achk"><input type="checkbox" data-at="seqsync"><span>Seq Sync ✦</span></label>
-</div>
-<div class="togs"><button class="tog" id="btnAudioAll">Everything ✦</button></div>
-<div class="row"><label>Sens ✦</label><input type="range" id="rngAudioSens" min="0" max="100" value="60"><output id="outAudioSens">60</output></div>
-<div class="row"><label>Level ✦</label><div class="meter"><div id="audioMeterFill"></div></div></div>
-<div class="row"><label>Beat ✦</label><div class="beatlamp" id="beatLamp"></div><output id="outEstBpm" style="flex:1;text-align:left">— BPM</output></div>
 </div>
 <div class="sec">
 <h3>LFO Modulation<span class="dia">✦</span><button class="hb" data-h="lfo">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-lfo"><b>LFO ✦</b> slowly modulates one target on the BPM clock. TARGET / WAVE / DEPTH / PHASE / RATE / BI-POLAR. Stacks with AUDIO REACT for layered modulation.</div>
+<div class="hbx" id="h-lfo"><b>LFO ✦</b> slowly modulates one target on the BPM clock. TARGET / WAVE / DEPTH / PHASE / RATE / BI-POLAR.</div>
 <div class="row"><label>Target</label>
 <select id="selLfoTarget">
 <option value="none">None</option>
@@ -467,7 +439,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Feedback Loop / Ghosting<span class="dia">✦</span><button class="hb" data-h="fb">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-fb"><b>Video feedback loop ✦</b> — GHOST · ZOOM ✦ · ROTATE ✦ · HUE SHIFT ✦ · DECAY · BLEND ✦. Buffer capped at 640px on mobile. Audio FEEDBACK target pumps this with the bass.</div>
+<div class="hbx" id="h-fb"><b>Video feedback loop ✦</b> — GHOST · ZOOM ✦ · ROTATE ✦ · HUE SHIFT ✦ · DECAY · BLEND ✦. Buffer capped at 640px on mobile.</div>
 <div class="row"><label>Ghost</label><input type="range" id="rngFeedback" min="0" max="90" value="0"><output id="outFeedback">0</output></div>
 <div class="row"><label>Zoom</label>
 <select id="selFbZoomDir">
@@ -513,7 +485,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div class="tabpane" id="paneSys">
 <div class="sec" style="border-color:var(--gold)">
 <h3 style="color:var(--gold)">Input Mode <em id="srcKind">TST</em><span class="dia">✦</span><button class="hb" data-h="input">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-input"><b>Source switching ✦.</b> OPEN = real tap-target file input. LINK ✦ = pasted URL / base64 / data-URL (works inside picker-less shells like html2app). TEST CARD = calibration art. Tap the canvas to browse.</div>
+<div class="hbx" id="h-input"><b>Source switching ✦.</b> OPEN = real tap-target file input. LINK ✦ = pasted URL / base64 / data-URL. TEST CARD = calibration art. Tap the canvas to browse.<br><br><b>v43 OFFLINE:</b> no CDN, no network. GIFs show a first-frame still.</div>
 <select id="selInput">
 <option value="file">Open File…</option>
 <option value="test" selected>Test Card</option>
@@ -526,12 +498,12 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>GIF Player ✦ <em id="gifInfo">NO GIF</em><button class="hb" data-h="gif">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-gif"><b>Animated GIF playback ✦</b> via gifuct-js — plays inside the pipeline with proper disposal. SPEED ✦ 0.25×–4×. Fallback CDN if the first is blocked.</div>
+<div class="hbx" id="h-gif"><b>GIF ✦</b> — disabled in the OFFLINE build (no decoder bundled). GIFs fall back to a first-frame still. SPEED ✦ kept for parity.</div>
 <div class="row"><label>Speed ✦</label><input type="range" id="rngGifSpeed" min="0.25" max="4" step="0.25" value="1"><output id="outGifSpeed">1x</output></div>
 </div>
 <div class="sec">
 <h3>Record<span class="dia">✦</span><button class="hb" data-h="rec">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-rec"><b>Canvas recording ✦.</b> MP4 first-class (AVC where supported), WebM fallback. 5/15/30/60s, size-guarded. Streams are released on stop so the hardware encoder never locks between takes.</div>
+<div class="hbx" id="h-rec"><b>Canvas recording ✦.</b> MP4 first-class (AVC where supported), WebM fallback. 5/15/30/60s, size-guarded. Streams are released on stop so the hardware encoder never locks.</div>
 <div class="row"><label>Length</label>
 <select id="recDur">
 <option value="5" selected>5s</option>
@@ -581,7 +553,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div class="sec">
 <h3>Debug Log <em id="dbgCount">0</em><span class="dia">✦</span><button class="hb" data-h="dbg">?</button><span class="chev">▾</span></h3>
-<div class="hbx" id="h-dbg"><b>Boot + runtime log ✦.</b> Records every milestone, load, guard clamp, mic permission grant/denial, beat-sync lock, recorder event and render error. COPY the transcript when reporting bugs.</div>
+<div class="hbx" id="h-dbg"><b>Boot + runtime log ✦.</b> Records every milestone, load, guard clamp and render error. COPY the transcript when reporting bugs.</div>
 <pre id="debugPre"></pre>
 <div class="togs"><button class="mini" id="btnDbgClear">Clear</button><button class="mini" id="btnDbgCopy">Copy</button></div>
 </div>
@@ -603,7 +575,7 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 <div id="linkModal" class="modal hidden">
 <div class="modalbox">
 <div class="mtitle">// Link Loader ✦</div>
-<div class="msub">For app shells with no file picker (html2app etc). Paste a direct image URL, or a data-URL / raw base64.</div>
+<div class="msub">Paste a direct image URL, or a data-URL / raw base64.</div>
 <div class="msep"></div>
 <input type="text" id="linkUrl" placeholder="https://…/photo.jpg (direct link)">
 <div class="togs"><button id="linkLoadUrl" class="primary">Load URL</button></div>
@@ -614,21 +586,20 @@ padding:4px 6px;white-space:pre-wrap;word-break:break-word;
 </div>
 <div id="help" class="modal hidden">
 <div class="modalbox">
-<div class="mtitle">// Field Manual — v45 Mobile</div>
+<div class="mtitle">// Field Manual — v43 OFFLINE</div>
 <div class="msep"></div>
 <div class="msub">
 <span class="dia">✦</span> <b>GOLD DIAMOND = not in the original Ditherboy.</b> Tap <b>?</b> on any section for deep help.<br><br>
-<div class="mhead">// What v45 adds</div>
-<b>LIVE AUDIO, back.</b> The full v34 audio engine is ported over: dual-envelope onset detector with auto tempo, 11 stackable targets, FX PUMP / FX STROBE / CUT SLAM / PALETTE STAB, BEAT SYNC into the sequencer, beat lamp + level meter, SENS + AUTO-GAIN.<br>
-It only touches the mic when you tap <b>AUDIO REACT ✦</b>. In Chrome / your installed PWA the permission prompt appears and it just works; in a WebView shell that refuses the mic, the Debug Log tells you why instead of crashing.<br><br>
+<div class="mhead">// v43 OFFLINE</div>
+Zero external requests. The gifuct-js CDN tag is removed; GIFs show a first-frame still. The file is fully self-contained and runs in airplane mode.<br>
+Also fixes the v42 recorder merge bug (orphan top-level <b>return</b> that threw "illegal return statement" and killed boot).<br><br>
 <div class="mhead">// Pipeline</div>
 SOURCE → ADJUST → COLOR LAB (pre) → <b>DITHER ENGINE</b> → COLOR LAB (post) → OUTPUT MODE → FX STACK → FEEDBACK/TRAILS.<br><br>
 <div class="mhead">// Performance Tips</div>
 • Frame time over ~33ms? Drop PIXEL size first, then MAX RES.<br>
 • FEEDBACK and TRAILS each cost one extra canvas pass.<br>
-• BREAKER auto-pauses LIVE if the frame budget collapses.<br>
-• The audio analyser runs on its own rAF loop; it sleeps when AUDIO REACT is off.<br><br>
-<i>Credits: Ditherboy (baseline), Photomosh, Glitché, PixelSort, ImageMosh, VHS plugin lore, gifuct-js.</i>
+• BREAKER auto-pauses LIVE if the frame budget collapses.<br><br>
+<i>Credits: Ditherboy (baseline), Photomosh, Glitché, PixelSort, ImageMosh, VHS plugin lore.</i>
 </div>
 <button id="helpClose">Close</button>
 </div>
@@ -676,19 +647,16 @@ if(cnt)cnt.textContent="!";
 </script>
 <script>
 /*
-CHROMAVORE v45 MOBILE — changelog:
-1. LIVE AUDIO ported from v34: dual-envelope onset detector + auto tempo,
-11 stackable targets (STRENGTH/FEEDBACK/BRIGHTNESS/HUE/JITTER/PIXEL +
-FX PUMP/FX STROBE/PALETTE STAB/CUT SLAM/SEQ SYNC), EVERYTHING toggle,
-SENS + AUTO-GAIN, beat lamp + level meter, BEAT SYNC writes detected
-tempo into BPM and SEQ SYNC snaps/re-phases the sequencer clock.
-2. Graceful mic degradation: AUDIO REACT only requests the mic on tap;
-if getUserMedia is missing or denied, the Debug Log reports it instead
-of crashing (matters in picker/mic-less WebView shells like html2app).
-3. Everything else identical to v44: even-dim recorder + encoder-safe
-bitrate + stream release, real-tap OPEN, LINK loader, picker watchdog,
-freeze guards, heartbeat, palette LUT, 32 engines / 29 FX, MP4/WebM,
-GIF playback + fallback CDN.
+CHROMAVORE v43 OFFLINE — changelog:
+1. FULLY OFFLINE: gifuct-js CDN tag removed; zero external requests.
+GIF playback disabled (first-frame still fallback kept). Runs in
+airplane mode, in any WebView/APK, no network ever.
+2. RECORDER MERGE BUG FIXED: v42 shipped an orphan top-level block with
+a bare `return` (illegal return statement) that killed boot. The
+recorder is now a single clean startRec() with stream release on stop.
+Everything else identical to v42 (real-tap OPEN, LINK loader, picker
+watchdog, freeze guards, heartbeat, palette LUT, 32 engines / 29 FX,
+MP4/WebM recording).
 */
 "use strict";
 const NL=String.fromCharCode(10);
@@ -716,8 +684,8 @@ if(tgt&&tgt!==window&&tgt.tagName)return;
 var msg=(e&&typeof e.message==="string"&&e.message.length)?e.message:"";
 if(msg)dlog("RUNTIME ERROR: "+msg,"err");
 });
-dlog("CHROMAVORE v45 MOBILE boot sequence start","ok");
-dlog("Debug log + watchdog online","info");
+dlog("CHROMAVORE v43 OFFLINE boot sequence start","ok");
+dlog("Offline build: zero external requests","info");
 const $=id=>document.getElementById(id);
 const outCanvas=$("out"), octx=outCanvas.getContext("2d",{alpha:false});
 const srcCanvas=document.createElement("canvas");
@@ -762,10 +730,6 @@ palSort:"original",palRotate:0,colorEmph:0,fbZoomDir:"in",fbRotation:0,
 fbHueShift:0,fbDecay:90,fbBlend:"source-over",
 colorStage:"pre",gainR:0,gainG:0,gainB:0,liftR:0,liftG:0,liftB:0,
 splitShadowHue:220,splitShadowAmt:0,splitHighHue:45,splitHighAmt:0,
-audioOn:false,audioSens:60,
-audioTargets:{strength:true,feedback:true,brightness:true,hue:true,jitter:true,pixel:true,
-fxpump:false,fxstrobe:false,palettestab:false,cutslam:false,seqsync:false},
-beatSync:true,
 gifSpeed:1,fastMode:false,
 maxRes:960,exportScale:1,
 breaker:true,
@@ -943,10 +907,6 @@ for(let r=0;r<S.levels;r++)for(let g=0;g<S.levels;g++)for(let b=0;b<S.levels;b++
 a.push([Math.round(255*r/(S.levels-1)),Math.round(255*g/(S.levels-1)),Math.round(255*b/(S.levels-1))]);
 }else if(PALETTES[key]) a=PALETTES[key].colors.slice();
 else a=[[0,0,0],[255,255,255]];
-/* v45: audio PALETTE STAB — beat-locked palette flashes */
-if(S.audioOn&&palStab&&PALETTES[palStab]&&!S.palLock&&performance.now()<palStabUntil){
-a=PALETTES[palStab].colors.slice();
-}
 if(S.palSort==="luminance") a.sort((x,y)=>(0.299*x[0]+0.587*x[1]+0.114*x[2])-(0.299*y[0]+0.587*y[1]+0.114*y[2]));
 if(S.palSort==="hue") a.sort((x,y)=>Math.atan2(2*x[1]-x[0]-x[2],Math.sqrt(3)*(x[0]-x[2]))-Math.atan2(2*y[1]-y[0]-y[2],Math.sqrt(3)*(y[0]-y[2])));
 if(S.palSort==="reverse") a.reverse();
@@ -1146,156 +1106,7 @@ if(S.invert){r=255-r;g=255-g;b=255-b;}
 d[i]=lut[clamp255(r|0)];d[i+1]=lut[clamp255(g|0)];d[i+2]=lut[clamp255(b|0)];
 }
 }
-/* ============================================================
-v45: AUDIO ENGINE — dual-envelope onset detector + auto tempo.
-============================================================ */
-let audioCtx=null, analyser=null, audioStream=null, audioFreq=null, audioRAF=0;
-let audioLevel=0, audioFast=0, audioSlow=0, audioPeak=0;
-let audioMax=0.02, kickMax=0.02;
-let beatTimes=[], lastBeat=0, estBPM=0, lastLoggedBPM=0, beatLampT=0, lastShownBPM=-1;
-let strobeFx=null, strobeUntil=0;
-let palStab=null, palStabUntil=0;
-let cutSlamUntil=0;
-function syncAudioUI(){
-$("togAudio").classList.toggle("on",S.audioOn);
-syncAudioCheckboxes();
-}
-function syncAudioCheckboxes(){
-document.querySelectorAll("#audioTargets input").forEach(cb=>{
-const key=cb.getAttribute("data-at");
-cb.checked=!!S.audioTargets[key];
-cb.parentElement.classList.toggle("on",cb.checked);
-});
-}
-function beatDuration(){return estBPM>0?60000/estBPM:300;}
-function fireBeat(now){
-lastBeat=now;
-audioPeak=1;
-beatLampT=now;
-beatTimes.push(now);
-if(beatTimes.length>12)beatTimes.shift();
-if(beatTimes.length>=4){
-const ivs=[];
-for(let i=1;i<beatTimes.length;i++)ivs.push(beatTimes[i]-beatTimes[i-1]);
-ivs.sort((a,b)=>a-b);
-let med=ivs[Math.floor(ivs.length/2)];
-while(med>1000)med/=2;
-while(med<250)med*=2;
-estBPM=Math.round(60000/med);
-if(S.beatSync&&estBPM>=60&&estBPM<=240&&Math.abs(estBPM-S.bpm)>2){
-if(Math.abs(estBPM-lastLoggedBPM)>6){
-dlog("Beat sync locked: ~"+estBPM+" BPM","ok");
-lastLoggedBPM=estBPM;
-}
-S.bpm=estBPM;
-$("rngBpm").value=S.bpm;
-setText("outBpm",String(S.bpm));
-if(seqPlay)rescheduleSeq();
-}
-}
-const T=S.audioTargets,halfBeat=Math.max(90,beatDuration()/2);
-if(T.seqsync&&seqPlay){
-seqStep=(seqStep+1)%8;
-updateSeqUI();
-rescheduleSeq();
-if(!S.live)schedule();
-}
-if(T.fxstrobe){
-const pool=Object.keys(FXDEF);
-strobeFx=pool[Math.floor(Math.random()*pool.length)];
-strobeUntil=now+halfBeat;
-}
-if(T.palettestab&&!S.palLock){
-palStab=STAT_PALS[Math.floor(Math.random()*STAT_PALS.length)];
-palStabUntil=now+halfBeat;
-}
-if(T.cutslam)cutSlamUntil=now+120;
-}
-async function startAudio(){
-if(S.audioOn)return;
-if(!navigator.mediaDevices||!navigator.mediaDevices.getUserMedia){
-dlog("Mic API unavailable in this shell — AUDIO REACT needs a browser with getUserMedia (Chrome / installed PWA)","err");
-return;
-}
-dlog("Requesting microphone permission...","info");
-try{
-audioStream=await navigator.mediaDevices.getUserMedia({audio:{echoCancellation:false,noiseSuppression:false,autoGainControl:false}});
-audioCtx=audioCtx||new (window.AudioContext||window.webkitAudioContext)();
-if(audioCtx.state==="suspended"){try{await audioCtx.resume();}catch(e){}}
-const srcN=audioCtx.createMediaStreamSource(audioStream);
-analyser=audioCtx.createAnalyser();
-analyser.fftSize=2048;
-analyser.smoothingTimeConstant=0.35;
-srcN.connect(analyser);
-audioFreq=new Uint8Array(analyser.frequencyBinCount);
-audioMax=0.02;kickMax=0.02;audioFast=0;audioSlow=0;audioPeak=0;
-beatTimes.length=0;estBPM=0;lastLoggedBPM=0;lastShownBPM=-1;
-strobeFx=null;strobeUntil=0;palStab=null;palStabUntil=0;cutSlamUntil=0;
-S.audioOn=true;
-if(!S.live)setLive(true);
-syncAudioUI();
-audioLoop();
-if(S.audioTargets.seqsync&&seqPlay)rescheduleSeq();
-dlog("Audio reactive armed — dual-envelope detector online","ok");
-}catch(err){
-S.audioOn=false;syncAudioUI();
-dlog("Mic access failed: "+(err.name||err.message)+" — shell denied the mic","err");
-}
-}
-function stopAudio(){
-if(!S.audioOn)return;
-S.audioOn=false;
-cancelAnimationFrame(audioRAF);audioRAF=0;
-if(audioStream){audioStream.getTracks().forEach(t=>t.stop());audioStream=null;}
-audioLevel=audioFast=audioSlow=audioPeak=0;
-strobeFx=null;strobeUntil=0;palStab=null;palStabUntil=0;cutSlamUntil=0;
-estBPM=0;beatTimes.length=0;
-const meter=$("audioMeterFill");if(meter)meter.style.width="0%";
-const lamp=$("beatLamp");if(lamp)lamp.classList.remove("lit");
-setText("outEstBpm","— BPM");
-syncAudioUI();
-if(seqPlay)rescheduleSeq();
-dlog("Audio reactive disarmed","info");
-}
-function audioLoop(){
-if(!S.audioOn||!analyser)return;
-audioRAF=requestAnimationFrame(audioLoop);
-const now=performance.now();
-analyser.getByteFrequencyData(audioFreq);
-const n=audioFreq.length;
-const binHz=audioCtx.sampleRate/analyser.fftSize;
-const subEnd=Math.max(1,Math.min(n,Math.round(120/binHz)));
-const bassEnd=Math.max(subEnd+1,Math.min(n,Math.round(250/binHz)));
-let sum=0,kickSum=0;
-for(let i=0;i<n;i++){
-const v=audioFreq[i];sum+=v;
-if(i<bassEnd)kickSum+=v;
-}
-const raw=(sum/n)/255;
-const rawKick=(kickSum/bassEnd)/255;
-audioMax=Math.max(raw,audioMax*0.9995,0.02);
-kickMax=Math.max(rawKick,kickMax*0.9995,0.02);
-const sens=S.audioSens/50;
-audioLevel=Math.min(1,(raw/audioMax)*1.15*sens);
-const k=Math.min(1.2,(rawKick/kickMax)*1.1*sens);
-audioFast=Math.max(k,audioFast*0.72);
-audioSlow=audioSlow*0.975+k*0.025;
-const refractory=estBPM>0?beatDuration()*0.45:150;
-if(audioFast>audioSlow*1.28+0.06&&audioFast>0.14&&now-lastBeat>refractory){
-fireBeat(now);
-}
-audioPeak*=0.84;
-const meter=$("audioMeterFill");
-if(meter)meter.style.width=Math.round(Math.min(1,audioLevel)*100)+"%";
-const lamp=$("beatLamp");
-if(lamp)lamp.classList.toggle("lit",now-beatLampT<130);
-const shown=estBPM>0?estBPM:0;
-if(shown!==lastShownBPM){lastShownBPM=shown;setText("outEstBpm",shown>0?shown+" BPM":"— BPM");}
-}
-function seqBeatSyncActive(){return S.audioOn&&seqPlay&&!!S.audioTargets.seqsync;}
 function fxActive(fx){
-/* v45: audio FX STROBE force-fires one FX per beat */
-if(S.audioOn&&strobeFx&&performance.now()<strobeUntil&&fx.id===strobeFx)return true;
 const pat=seqMap[fx.id];
 if(seqPlay&&pat&&pat.some(Boolean))return !!pat[seqStep];
 return fx.on;
@@ -1318,12 +1129,10 @@ octx.save();octx.imageSmoothingEnabled=false;octx.drawImage(tmpCanvas,0,0,w,h);o
 }
 function applyFxStack(){
 const w=outCanvas.width,h=outCanvas.height;
-/* v45: audio FX PUMP scales every FX amount with loudness */
-const pump=(S.audioOn&&S.audioTargets.fxpump)?(0.35+audioLevel*0.95):1;
 for(let fi=0;fi<S.fx.length;fi++){
 const fx=S.fx[fi];
 if(!fxActive(fx))continue;
-const v=Math.min(1,(fx.val/100)*pump);
+const v=Math.min(1,fx.val/100);
 if(fx.id==="scan"){
 octx.save();octx.fillStyle="rgba(0,0,0,"+(0.12+v*0.35)+")";
 for(let y=0;y<h;y+=3)octx.fillRect(0,y,w,1);
@@ -1712,20 +1521,6 @@ else if(S.lfoTarget==="pixel")TEMP.lfoPixel=wv*2*dep;
 else if(S.lfoTarget==="strength")TEMP.lfoStrength=wv*50*dep;
 else if(S.lfoTarget==="glitch")TEMP.cut=Math.floor(t/6)*17;
 }
-/* v45: audio targets feed the same TEMP pipeline */
-if(S.audioOn){
-const T=S.audioTargets;
-if(T.strength)TEMP.lfoStrength+=audioLevel*60;
-if(T.feedback)TEMP.lfoFeedback+=audioFast*45;
-if(T.brightness)TEMP.lfoBright+=(audioLevel-0.3)*40+audioPeak*12;
-if(T.hue)TEMP.hue+=audioPeak*120;
-if(T.jitter)TEMP.seedJit+=Math.round(audioPeak*6);
-if(T.pixel)TEMP.lfoPixel+=audioFast*1.5;
-if(T.cutslam&&performance.now()<cutSlamUntil){
-TEMP.cut+=1789+((liveTick*7919)%997);
-TEMP.seedJit+=5;
-}
-}
 }
 function updateFeedback(w,h){
 const fbAmt=Math.max(0,S.feedback+TEMP.lfoFeedback);
@@ -1906,7 +1701,7 @@ setText("statFps",fpsAvg>0?String(Math.round(fpsAvg)):"—");
 setText("statEng","CPU");
 setText("statPal",pal.length+" COLORS");
 setText("statFx",S.fx.filter(fxActive).length+" / "+S.fx.length);
-setText("statMode",S.lmode.toUpperCase()+(S.live?" LIVE":" STATIC")+(S.fastMode?" · 60FPS":" · 30FPS")+(S.audioOn?" · MIC":""));
+setText("statMode",S.lmode.toUpperCase()+(S.live?" LIVE":" STATIC")+(S.fastMode?" · 60FPS":" · 30FPS"));
 if(sourceKind!==lastSrcKindShown){
 lastSrcKindShown=sourceKind;
 setText("srcKind",SRC_TAGS[sourceKind]||"TST");
@@ -1934,10 +1729,7 @@ dlog("RENDER ERROR: "+err.message,"err");
 function schedule(){
 if(renderQueued)return;
 renderQueued=true;
-requestAnimationFrame(()=>{
-renderQueued=false;
-try{render();}catch(e){dlog("SCHEDULE ERROR: "+e.message,"err");}
-});
+requestAnimationFrame(()=>{renderQueued=false;render();});
 }
 function drawOriginal(){
 if(!srcCanvas.width)return;
@@ -2071,8 +1863,7 @@ mime=mime||sniffType(u.slice(0,16))||"";
 if(!mime)dlog("No MIME and sniff found nothing — attempting image decode anyway","warn");
 else dlog("Routing bytes as: "+mime,"info");
 if(mime==="image/gif"){
-if(gifDecoderReady()){parseGifBuffer(u.buffer,"(bytes)");return;}
-dlog("gifuct not loaded — GIF falls back to still frame","warn");
+dlog("GIF playback disabled in OFFLINE build — showing first frame still","warn");
 mime="image/jpeg";
 }
 const blob=new Blob([u],{type:mime||"image/jpeg"});
@@ -2155,7 +1946,7 @@ if(pickerHintShown)return;
 setTimeout(()=>{
 if(!pickerHintShown){
 pickerHintShown=true;
-dlog("No file picker appeared — this app shell's WebView may not support file selection (html2app's doesn't). Use LINK to load from a URL or base64.","warn");
+dlog("No file picker appeared — this shell's WebView may not support file selection. Use LINK to load from base64/data-URL.","warn");
 }
 },2500);
 }
@@ -2194,7 +1985,10 @@ let type=await fileTypeOf(file);
 if(!type)type=extHint(name);
 if(!type)dlog("No MIME type and no sniff match — attempting image decode anyway","warn");
 dlog("Loading file: "+(name||"(no name)")+" ["+(type||"unknown")+"]","info");
-if(type==="image/gif"){loadGifFile(file);return;}
+if(type==="image/gif"){
+dlog("GIF playback disabled in OFFLINE build — showing first frame still","warn");
+type="image/png";
+}
 if(type.indexOf("video/")===0){loadVideoFile(file);return;}
 if(type&&type.indexOf("image/")!==0){dlog("Unsupported file type: "+type,"warn");return;}
 const url=URL.createObjectURL(file);
@@ -2251,11 +2045,7 @@ vidRAF=requestAnimationFrame(loop);
 }
 let gifFrames=null,gifActive=false,gifIdx=0,gifRAF=0,gifNextT=0;
 const gifCanvas=document.createElement("canvas"), gifCtx=gifCanvas.getContext("2d");
-const gifPatch=document.createElement("canvas"), gifPatchCtx=gifPatch.getContext("2d");
-const gifBackup=document.createElement("canvas"), gifBctx=gifBackup.getContext("2d");
-function gifDecoderReady(){
-return typeof window.gifuct!=="undefined"&&typeof window.gifuct.parseGIF==="function";
-}
+function gifDecoderReady(){return false;}
 function killGifPlayer(){
 gifActive=false;
 cancelAnimationFrame(gifRAF);gifRAF=0;
@@ -2268,82 +2058,6 @@ srcCanvas.width=ss[0];srcCanvas.height=ss[1];
 const sc=srcCanvas.getContext("2d");
 sc.fillStyle="#000";sc.fillRect(0,0,srcCanvas.width,srcCanvas.height);
 sc.drawImage(gifCanvas,0,0,srcCanvas.width,srcCanvas.height);
-}
-function drawGifFrame(i){
-const f=gifFrames[i];
-if(!f)return;
-if(i===0)gifCtx.clearRect(0,0,gifCanvas.width,gifCanvas.height);
-if(i>0){
-const p=gifFrames[i-1];
-if(p.disposal===2){
-gifCtx.clearRect(p.dims.left,p.dims.top,p.dims.width,p.dims.height);
-}else if(p.disposal===3&&gifBackup.width){
-gifCtx.clearRect(0,0,gifCanvas.width,gifCanvas.height);
-gifCtx.drawImage(gifBackup,0,0);
-}
-}
-if(f.disposal===3){
-gifBackup.width=gifCanvas.width;gifBackup.height=gifCanvas.height;
-gifBctx.clearRect(0,0,gifBackup.width,gifBackup.height);
-gifBctx.drawImage(gifCanvas,0,0);
-}
-if(f.patch&&f.patch.data&&f.patch.data.length===f.patch.width*f.patch.height*4){
-try{
-gifPatch.width=f.patch.width;gifPatch.height=f.patch.height;
-gifPatchCtx.putImageData(new ImageData(new Uint8ClampedArray(f.patch.data),f.patch.width,f.patch.height),0,0);
-gifCtx.drawImage(gifPatch,f.dims.left,f.dims.top);
-}catch(e){dlog("GIF frame "+i+" patch failed: "+e.message,"warn");}
-}
-pushGifToSrc();
-}
-function gifLoop(){
-cancelAnimationFrame(gifRAF);
-const loop=now=>{
-if(!gifActive||!gifFrames){gifRAF=0;return;}
-gifRAF=requestAnimationFrame(loop);
-if(now>=gifNextT){
-drawGifFrame(gifIdx);
-if(!S.live)render();
-const f=gifFrames[gifIdx];
-const delay=Math.max(40,(f.delay||100))/Math.max(0.25,S.gifSpeed);
-gifNextT=now+delay;
-gifIdx=(gifIdx+1)%gifFrames.length;
-}
-};
-gifRAF=requestAnimationFrame(loop);
-}
-function parseGifBuffer(buf,label){
-try{
-const gif=window.gifuct.parseGIF(buf);
-const frames=window.gifuct.decompressFrames(gif,true);
-if(!frames||!frames.length){dlog("GIF had no decodable frames","err");return;}
-prepareNewSource();
-gifFrames=frames;
-gifCanvas.width=gif.lsd.width;gifCanvas.height=gif.lsd.height;
-gifIdx=0;gifNextT=0;gifActive=true;
-sourceKind="gif";
-setText("gifInfo",frames.length+" FRAMES");
-drawGifFrame(0);
-render();
-gifIdx=1%frames.length;
-gifLoop();
-dlog("GIF ready: "+frames.length+" frames @ "+gif.lsd.width+"x"+gif.lsd.height+" "+label,"ok");
-}catch(err){
-dlog("GIF decode failed: "+err.message,"err");
-}
-}
-function loadGifFile(file){
-dlog("Loading GIF: "+(file.name||"file"),"info");
-if(!gifDecoderReady()){
-dlog("gifuct-js decoder NOT loaded (offline?) — showing first frame only","warn");
-const url=URL.createObjectURL(file);
-const im=new Image();
-im.onload=()=>{prepareNewSource();sourceKind="image";lastImage=im;setStaticImage(im);setText("gifInfo","NO GIF");};
-im.onerror=()=>dlog("GIF fallback decode failed","err");
-im.src=url;
-return;
-}
-file.arrayBuffer().then(buf=>parseGifBuffer(buf,file.name||"")).catch(err=>dlog("GIF file read failed: "+err.message,"err"));
 }
 ["fileTap","fileInput"].forEach(id=>{
 const el=$(id);
@@ -2443,7 +2157,7 @@ if(seqPlay)return;
 seqPlay=true;seqStep=0;
 $("btnSeqPlay").classList.add("on");$("btnSeqPlay").textContent="Stop";
 rescheduleSeq();updateSeqUI();
-dlog("Sequencer PLAY @ "+S.bpm+" BPM"+(seqBeatSyncActive()?" (+ beat sync armed — beats snap ahead)":""),"ok");
+dlog("Sequencer PLAY @ "+S.bpm+" BPM","ok");
 }
 function stopSeq(){
 seqPlay=false;
@@ -2539,9 +2253,7 @@ function undo(){if(undoIdx<=0)return;undoIdx--;applySnapshot(JSON.parse(undoStac
 function redo(){if(undoIdx>=undoStack.length-1)return;undoIdx++;applySnapshot(JSON.parse(undoStack[undoIdx]));}
 function applySnapshot(snap){
 const oldRes=S.maxRes;
-const keepAudio=S.audioOn;
 Object.assign(S,snap);
-S.audioOn=keepAudio;
 if(S.maxRes!==oldRes)applyMaxRes();
 syncUI();buildFxRows();updateSeqUI();schedule();
 }
@@ -2587,7 +2299,6 @@ bindSlider("rngSplitShadowHue","outSplitShadowHue","splitShadowHue",v=>Math.roun
 bindSlider("rngSplitShadowAmt","outSplitShadowAmt","splitShadowAmt");
 bindSlider("rngSplitHighHue","outSplitHighHue","splitHighHue",v=>Math.round(v)+"°");
 bindSlider("rngSplitHighAmt","outSplitHighAmt","splitHighAmt");
-bindSlider("rngAudioSens","outAudioSens","audioSens");
 bindSlider("rngGifSpeed","outGifSpeed","gifSpeed",v=>v+"x");
 on("rngPatRot","input",()=>{S.patRot=parseFloat($("rngPatRot").value);setText("outPatRot",$("rngPatRot").value+"°");pushHistorySoon();schedule();});
 on("rngOffX","input",()=>{S.offx=parseFloat($("rngOffX").value);pushHistorySoon();schedule();});
@@ -2645,34 +2356,6 @@ on("togColorStage","click",()=>{
 S.colorStage=S.colorStage==="pre"?"post":"pre";
 syncStageToggle();pushHistoryNow();schedule();
 dlog("Color Lab stage set to "+S.colorStage.toUpperCase(),"info");
-});
-/* v45 audio bindings */
-on("togAudio","click",()=>{
-if(S.audioOn)stopAudio();else startAudio();
-});
-on("togBeatSync","click",()=>{
-S.beatSync=!S.beatSync;
-$("togBeatSync").classList.toggle("on",S.beatSync);
-pushHistoryNow();
-dlog("Beat sync "+(S.beatSync?"ON — BPM follows the song":"off — BPM manual"),"info");
-});
-document.querySelectorAll("#audioTargets input").forEach(cb=>{
-cb.addEventListener("change",()=>{
-const key=cb.getAttribute("data-at");
-S.audioTargets[key]=cb.checked;
-cb.parentElement.classList.toggle("on",cb.checked);
-if(key==="seqsync"&&seqPlay)rescheduleSeq();
-pushHistoryNow();
-});
-});
-on("btnAudioAll","click",()=>{
-const keys=Object.keys(S.audioTargets);
-const allOn=keys.every(k=>S.audioTargets[k]);
-keys.forEach(k=>S.audioTargets[k]=!allOn);
-syncAudioCheckboxes();
-if(seqPlay)rescheduleSeq();
-pushHistoryNow();
-dlog("Audio targets: "+(allOn?"ALL OFF":"EVERYTHING"),"info");
 });
 function bindToggle(id,key){
 on(id,"click",()=>{
@@ -2848,7 +2531,7 @@ function fmtSize(b){return b>1048576?(b/1048576).toFixed(2)+" MB":(b/1024).toFix
 function recBitrate(){
 const px=outCanvas.width*outCanvas.height;
 const base=960*540;
-return Math.min(24000000,Math.max(6000000,Math.round(6000000*(px/base))));
+return Math.min(48000000,Math.max(8000000,Math.round(8000000*(px/base))));
 }
 function bakeExportCanvas(){
 const sc0=Math.max(1,Math.round(S.exportScale||1));
@@ -2908,7 +2591,7 @@ rec.onerror=(e)=>{
 recording=false;
 stream.getTracks().forEach(t=>t.stop());
 setText("recStatus","recorder error");
-dlog("MediaRecorder error: "+(e.error?e.error.message:"unknown")+" — try WebM or lower MAX RES","err");
+dlog("MediaRecorder error: "+(e.error?e.error.message:"unknown"),"err");
 setLive(recWasLive);
 };
 try{
@@ -3052,9 +2735,6 @@ aspectLock:true,gridOverlay:false,palSort:"original",palRotate:0,colorEmph:0,
 fbZoomDir:"in",fbRotation:0,fbHueShift:0,fbDecay:90,fbBlend:"source-over",
 colorStage:"pre",gainR:0,gainG:0,gainB:0,liftR:0,liftG:0,liftB:0,
 splitShadowHue:220,splitShadowAmt:0,splitHighHue:45,splitHighAmt:0,
-audioSens:60,beatSync:true,
-audioTargets:{strength:true,feedback:true,brightness:true,hue:true,jitter:true,pixel:true,
-fxpump:false,fxstrobe:false,palettestab:false,cutslam:false,seqsync:false},
 gifSpeed:1,fastMode:false,
 maxRes:960,exportScale:1,breaker:true
 });
@@ -3094,7 +2774,7 @@ rngGainR:S.gainR,rngGainG:S.gainG,rngGainB:S.gainB,
 rngLiftR:S.liftR,rngLiftG:S.liftG,rngLiftB:S.liftB,
 rngSplitShadowHue:S.splitShadowHue,rngSplitShadowAmt:S.splitShadowAmt,
 rngSplitHighHue:S.splitHighHue,rngSplitHighAmt:S.splitHighAmt,
-rngAudioSens:S.audioSens,rngGifSpeed:S.gifSpeed
+rngGifSpeed:S.gifSpeed
 };
 Object.keys(map).forEach(id=>{if($(id))$(id).value=map[id];});
 setText("outPixel",S.pixel);setText("outStrength",S.strength);setText("outScale",S.scale);
@@ -3114,7 +2794,7 @@ setText("outGainR",S.gainR);setText("outGainG",S.gainG);setText("outGainB",S.gai
 setText("outLiftR",S.liftR);setText("outLiftG",S.liftG);setText("outLiftB",S.liftB);
 setText("outSplitShadowHue",Math.round(S.splitShadowHue)+"°");setText("outSplitShadowAmt",S.splitShadowAmt);
 setText("outSplitHighHue",Math.round(S.splitHighHue)+"°");setText("outSplitHighAmt",S.splitHighAmt);
-setText("outAudioSens",S.audioSens);setText("outGifSpeed",S.gifSpeed+"x");
+setText("outGifSpeed",S.gifSpeed+"x");
 $("numSeed").value=S.seed;
 $("togSerp").classList.toggle("on",S.serpentine);
 $("togAspectLock").classList.toggle("on",S.aspectLock);
@@ -3129,9 +2809,7 @@ $("togMosh").classList.toggle("on",S.mosh);
 $("togPulse").classList.toggle("on",S.pulse);
 $("togFastMode").classList.toggle("on",S.fastMode);
 $("togBreaker").classList.toggle("on",S.breaker);
-$("togBeatSync").classList.toggle("on",S.beatSync);
 syncStageToggle();
-syncAudioUI();
 syncChips();updateSeqUI();
 }
 document.querySelectorAll(".sec h3").forEach(h=>{
@@ -3147,9 +2825,7 @@ document.querySelectorAll(".tabpane").forEach(p=>p.classList.toggle("on",p.id===
 });
 });
 dlog("Boot complete — drawing test card","ok");
-dlog("v45: live audio engine online — dual-envelope detector, 11 targets, beat sync","ok");
-dlog(("AudioContext" in window||"webkitAudioContext" in window)?"Web Audio available":"Web Audio MISSING — audio reactive disabled","info");
-dlog(gifDecoderReady()?"gifuct-js decoder online (GIF playback ready)":"gifuct-js not ready yet — fallback CDN may still be loading; GIFs fall back to first frame until then",gifDecoderReady()?"ok":"warn");
+dlog("v43 OFFLINE: zero external requests, GIF still-frame fallback","ok");
 drawTestCard();
 syncUI();
 buildFxRows();
